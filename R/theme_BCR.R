@@ -46,9 +46,8 @@ theme_foundation <- function(base_size=12, base_family="") {
 #' @export
 #' @importFrom grid unit
 themeBCR <- function() {
-  theme_foundation(base_size = 15, base_family = "") +
+  theme_foundation(base_size = 15, base_family = "Exo 2, Helvetica, sans-serif") +
     theme(
-      base_family = "Exo 2, Helvetica, sans-serif",
       plot.background = element_rect(fill = "white"),
       panel.background = element_rect(fill = "white"),
       line = element_line(colour = "black"),
