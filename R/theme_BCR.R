@@ -67,7 +67,7 @@ themeBCR <- function() {
     panel.grid.minor = element_blank(),
     plot.margin = unit(c(1, 1, 1, 1), "lines"),
     strip.background = element_rect(),
-    text = element_text(family = "Exo 2", colour = "#3C3C3C"),
+    text = element_text(family = "Exo", colour = "#3C3C3C"),
     plot.caption = element_text(size = rel(0.7), hjust = 0),
     plot.caption.position = "plot",
     plot.tag = element_text(size = rel(0.8), hjust = c(0, 1), color = "#6d6f71",
