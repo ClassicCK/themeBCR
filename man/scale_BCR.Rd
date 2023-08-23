@@ -78,6 +78,6 @@ Color scales using the colors in the BCR color palette.
 }
 \seealso{
 Other colour BCR: 
-\code{\link{bcr_pal}()}
+\code{\link{colors_BCR}}
 }
 \concept{colour BCR}
