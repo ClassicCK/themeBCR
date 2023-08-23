@@ -4,7 +4,7 @@ Title: Bird Conservancy of the Rockies Theme for 'ggplot2'
 Authors@R: c(person("Christopher L.", "Kilner", role = c("aut", "cre"),
     email = "christopher.kilner@birdconservancy.org", 
     comment = "<https://orcid.org/0000-0001-8808-8868>"))
-Maintainer: christopher.kilner@birdconservancy.org
+Maintainer: christopher.kilner@birdconservancy.org 
 Depends:
     R (>= 3.3.0)
 Imports:
