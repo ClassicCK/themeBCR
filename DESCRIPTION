@@ -1,8 +1,9 @@
-Package: ggthemes
+Package: themeBCR
 Version: 0.1.0
 Title: Bird Conservancy of the Rockies Theme for 'ggplot2'
-Author: Christopher L. Kilner 
-Maintainer: science@clk.earth
+Authors@R: c(person("Christopher L.", "Kilner", role = c("aut", "cre"),
+    email = "christopher.kilner@birdconservancy.org", 
+    comment = "<https://orcid.org/0000-0001-8808-8868>"))
 Depends:
     R (>= 3.3.0)
 Imports:
