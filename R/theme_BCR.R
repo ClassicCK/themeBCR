@@ -88,20 +88,6 @@ themeBCR <- function() {
 #'
 #' @family colour BCR
 #' @export
-colors_BCR <- list(
-pink = "#A464B4",
-orange = "#B48C7C",
-gray = "#999999",
-red = "#B46474",
-purple = "#7C64B4",
-green = "#9CB464",
-blue = "#7CA4B4",
-siam = "#5C6454",
-yellow = "#B4A87C",
-black = "#222222",
-brown = "#80786C"
-)
-
 bcr_pal <- function() {
   colors <- list(
     green = "#9CB464",
@@ -143,3 +129,49 @@ scale_color_BCR <- scale_colour_BCR
 scale_fill_BCR <- function(...) {
   discrete_scale("fill", "economist", bcr_pal(), ...)
 }
+
+#' Wingspan color palette
+#'
+#' The standard color palette for line plots based on the game Wingspan
+#'
+#' @family colour Wingspan
+#' @export
+wingspan_pal <- function() {
+  colors <- list(
+    forest = '#6d904f',
+    grassland = '#e5ae38',
+    wetland = '#30a2da',
+    forestgrassland = '#a99f44',
+    forestwetland = '#4e9994',
+    grasslandwetland = '#8aa889',
+    all = '#81a076',
+    other = '#9576A0')
+  values <- unname(colors[c("forest", "grassland", "wetland", "forestgrassland", "forestwetland", "grasswetland", "all", "other")])
+  max_n <- length(values)
+  f <- scales::manual_pal(values)
+  attr(f, "max_n") <- max_n
+  f
+}
+
+#' Wingspan color scales
+#'
+#' Color scales using the colors in the Wingspan color palette.
+#'
+#' @inheritParams ggplot2::scale_colour_hue
+#' @family colour Wingspan
+#' @rdname scale_Wingspan
+#' @export
+scale_colour_wingspan <- function(...) {
+  discrete_scale("colour", "economist", wingspan_pal(), ...)
+}
+
+#' @rdname scale_Wingspan
+#' @export
+scale_color_wingspan <- scale_colour_wingspan
+
+#' @rdname scale_Wingspan
+#' @export
+scale_fill_wingspan <- function(...) {
+  discrete_scale("fill", "economist", wingspan_pal(), ...)
+}
+
