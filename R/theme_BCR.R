@@ -44,6 +44,7 @@ theme_foundation <- function(base_size=12, base_family="") {
 #' @import ggplot2
 #'
 #' @export
+#' @importFrom grid unit
 themeBCR <- function() {
   theme_foundation(base_size = 15, base_family = "") +
     theme(
