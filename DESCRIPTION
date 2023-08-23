@@ -1,0 +1,11 @@
+Package: themeBCR
+Type: Package
+Title: Plot theme for Bird Conservancy of the Rockies
+Version: 0.1.0
+Author: Christopher Kilner
+Maintainer: The package maintainer science@clk.earth
+Description: Theme for ggplot2 plotting functions for Bird Conservancy of the Rockies.
+    Maintained to ensure common plotting across projects.
+License: MIT
+Encoding: UTF-8
+LazyData: true
