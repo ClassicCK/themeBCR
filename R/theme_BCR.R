@@ -64,7 +64,7 @@ themeBCR <- function() {
       panel.grid.minor = element_blank(),
       plot.margin = unit(c(1, 1, 1, 1), "lines"),
       strip.background = element_rect(),
-      text = element_text(family = "Exo 2", colour = "#3C3C3C"),
+      text = element_text(family = "Roboto", colour = "#3C3C3C"),
       plot.caption = element_text(size = rel(0.7), hjust = 0),
       plot.caption.position = "plot",
       plot.tag = element_text(
@@ -89,11 +89,36 @@ themeBCR <- function() {
 #'
 #' @family colour BCR
 #' @export
+colors_BCR <- list(
+pink = "#A464B4",
+orange = "#B48C7C",
+gray = "#999999",
+red = "#B46474",
+purple = "#7C64B4",
+green = "#9CB464",
+blue = "#7CA4B4",
+siam = "#5C6454",
+yellow = "#B4A87C",
+black = "#222222",
+brown = "#80786C"
+)
+
 bcr_pal <- function() {
-  colors <- c("#9CB464", "#7CA4B4", "#B46474", "#7C64B4", "#5C6454", "#B48C7C", "#A464B4", "#B4A87C", "#80786C", "#999999", "#222222")
+  colors <- list(
+    green = "#9CB464",
+    blue = "#7CA4B4",
+    red = "#B46474",
+    purple = "#7C64B4",
+    siam = "#5C6454",
+    orange = "#B48C7C",
+    lilac = "#A464B4",
+    gold = "#B4A87C",
+    brown = "#80786C",
+    gray = "#999999",
+    black = "#222222")
   values <- unname(colors[c('green', 'blue', 'red', 'purple', 'siam', 'orange', 'lilac', 'gold', 'brown', 'gray', 'black')])
   max_n <- length(values)
-  f <- manual_pal(values)
+  f <- scales::manual_pal(values)
   attr(f, "max_n") <- max_n
   f
 }
