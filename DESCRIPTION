@@ -1,12 +1,44 @@
-Package: themeBCR
-Type: Package
-Title: Plot theme for Bird Conservancy of the Rockies
+Package: ggthemes
 Version: 0.1.0
-Author: Christopher Kilner
-Maintainer: The package maintainer science@clk.earth
-Description: Theme for ggplot2 plotting functions for Bird Conservancy of the Rockies.
-    Maintained to ensure common plotting across projects.
+Title: Bird Conservancy of the Rockies Theme for 'ggplot2'
+Author: Christopher L. Kilner 
+Maintainer: science@clk.earth
+Depends:
+    R (>= 3.3.0)
+Imports:
+    ggplot2 (>= 3.0.0),
+    graphics,
+    grid,
+    methods,
+    purrr,
+    scales,
+    stringr,
+    tibble
+Suggests:
+    dplyr,
+    covr,
+    extrafont,
+    glue,
+    knitr,
+    lattice,
+    lintr,
+    maps,
+    mapproj,
+    pander,
+    rlang,
+    rmarkdown,
+    spelling,    
+    testthat,
+    tidyr,
+    vdiffr,
+    withr
+Description: Theme package for Bird Conservancy of the Rockies.
+    Provides 'ggplot2' themes and scales that replicate the look and color
+    of the Bird Conservancy of the Rockies logo. Plot parameters inspired by FiveThirtyEight.
 License: MIT
-Encoding: UTF-8
+URL: https://github.com/ClassicCK/themeBCR
+BugReports: https://github.com/ClassicCK/themeBCR
 LazyData: true
+Language: en-US
+Encoding: UTF-8
 RoxygenNote: 7.2.3
