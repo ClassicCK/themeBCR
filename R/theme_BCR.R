@@ -90,7 +90,7 @@ themeBCR <- function() {
 #' @export
 bcr_pal <- function() {
   colors <- c("#9CB464", "#7CA4B4", "#B46474", "#7C64B4", "#5C6454", "#B48C7C", "#A464B4", "#B4A87C", "#80786C", "#999999", "#222222")
-  values <- c('green', 'blue', 'red', 'purple', 'siam', 'orange', 'lilac', 'gold', 'brown', 'gray', 'black')
+  values <- unname(colors[c('green', 'blue', 'red', 'purple', 'siam', 'orange', 'lilac', 'gold', 'brown', 'gray', 'black')])
   max_n <- length(values)
   f <- manual_pal(values)
   attr(f, "max_n") <- max_n
