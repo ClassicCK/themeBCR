@@ -32,4 +32,4 @@ This is a basic example which shows you how to solve a common problem:
     #> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
     #> generated.
 
-![](wingspan_example.svg)
+![](wingspan_example.png)
