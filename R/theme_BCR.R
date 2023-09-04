@@ -23,7 +23,7 @@
 #' @family themes
 #' @export
 #' @importFrom ggplot2 theme_grey
-theme_foundation <- function(base_size=12, base_family= ""){
+theme_foundation <- function(base_size=15, base_family= ""){
   thm <- theme_grey(base_size = base_size, base_family = base_family)
   for (i in names(thm)) {
     if ("colour" %in% names(thm[[i]])) {
@@ -48,7 +48,7 @@ theme_foundation <- function(base_size=12, base_family= ""){
 #' @export
 #' @importFrom grid unit
 themeBCR <- function() {
-  theme_foundation(base_size = 12, base_family = "") +
+  theme_foundation(base_size = 15, base_family = "") +
     theme(
     plot.background = element_rect(fill = "white"),
     panel.background = element_rect(fill = "white"),
