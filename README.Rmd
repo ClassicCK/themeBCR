@@ -37,6 +37,7 @@ This is a basic example which shows you how to solve a common problem:
 library(themeBCR)
 library(ggplot2)
 library(cutr)
+library(svglite)
 
 lm_eqn <- function(df, y, x){
   formula = as.formula(sprintf('%s ~ %s', y, x))
@@ -66,8 +67,8 @@ data$Wingspan <- smart_cut(data$Wingspan, 5, "groups")
 data$`Wingspan (cm)` <- data$Wingspan
 ```
 
-```{r pressure}
-ggplot(data, aes(x = Victory.points, y = popularity, alpha = 0.2)) +
+```{r pressure, echo = F}
+p <- ggplot(data, aes(x = Victory.points, y = popularity, alpha = 0.2)) +
    geom_point(aes(color = Habitat, size = `Wingspan (cm)`)) +
    geom_smooth(method = "glm", se = TRUE, colour = '#3C3C3C') +
    themeBCR() +
@@ -88,4 +89,8 @@ ggplot(data, aes(x = Victory.points, y = popularity, alpha = 0.2)) +
      label.size = NA, 
      alpha = 1,
      show.legend  = F)
+
+ggsave("wingspan_example.svg", plot = p, width = 16, height = 9, dpi = 300, device = "svg")
 ```
+
+![](wingspan_example.svg)
