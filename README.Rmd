@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of themeBCR is to ...
+The goal of themeBCR is to ... the
 
 ## Installation
 
@@ -33,12 +33,40 @@ devtools::install_github("ClassicCK/themeBCR")
 
 This is a basic example which shows you how to solve a common problem:
 
-```{r example}
+```{r example, echo = F}
 library(themeBCR)
-## basic example code
+library(ggplot2)
+library(cutr)
+
+lm_eqn <- function(df, y, x){
+  formula = as.formula(sprintf('%s ~ %s', y, x))
+  m <- lm(formula, data=df);
+  # formating the values into a summary string to print out
+  # ~ give some space, but equal size and comma need to be quoted
+  eq <- substitute(italic(target) == a + b %.% italic(input)*","~~italic(r)^2~"="~r2*","~~p~"="~italic(pvalue), 
+                   list(target = y,
+                        input = x,
+                        a = format(as.vector(coef(m)[1]), digits = 2), 
+                        b = format(as.vector(coef(m)[2]), digits = 2), 
+                        r2 = format(summary(m)$r.squared, digits = 3),
+                        # getting the pvalue is painful
+                        pvalue = format(summary(m)$coefficients[2,'Pr(>|t|)'], digits=1)
+                   )
+  )
+  as.character(as.expression(eq));                 
+}
+
+wingspan <- read.csv("/Users/christopher/Library/Mobile Documents/com~apple~CloudDocs/wingspan/Birds-Table 1.csv")
+popularity <- read.csv("/Users/christopher/Library/Mobile Documents/com~apple~CloudDocs/popularity/covariates and results-Table 1.csv")
+colnames(popularity)[2] <- "Scientific.name"
+
+data <- merge(wingspan, popularity)
+data$Habitat <- gsub("Grasslands", "Grassland", data$Habitat)
+data$Wingspan <- smart_cut(data$Wingspan, 5, "groups")
+data$`Wingspan (cm)` <- data$Wingspan
 ```
 
-```{r pressure, echo = FALSE}
+```{r pressure}
 ggplot(data, aes(x = Victory.points, y = popularity, alpha = 0.2)) +
    geom_point(aes(color = Habitat, size = `Wingspan (cm)`)) +
    geom_smooth(method = "glm", se = TRUE, colour = '#3C3C3C') +
