@@ -38,18 +38,26 @@ library(themeBCR)
 ## basic example code
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
-
-You can also embed plots, for example:
-
 ```{r pressure, echo = FALSE}
-plot(pressure)
+ggplot(data, aes(x = Victory.points, y = popularity, alpha = 0.2)) +
+   geom_point(aes(color = Habitat, size = `Wingspan (cm)`)) +
+   geom_smooth(method = "glm", se = TRUE, colour = '#3C3C3C') +
+   themeBCR() +
+   scale_fill_BCR(palette = "Wingspan") +
+   labs(caption = "SOURCES: Wingspan, Schuetz & Johnston 2019 \n© 2023 Christopher L. Kilner, PhD",
+        title = "Do Birds of a Feather Flock Together?",
+        subtitle = "Bird popularity score versus Wingspan point values by species") +
+   scale_alpha(guide = FALSE) +
+   ylab("Popularity") +
+   xlab("Wingspan Victory Points") +
+   geom_label(
+     data = data[data$popularity > 3 | data$popularity < -1.3 | data$Common.name == "Baltimore Oriole",],
+     aes(x = Victory.points, y = popularity, color = Habitat, label = Common.name),
+     fill = "white",
+     size = 3,
+     fontface = "bold",
+     hjust = 1.151,
+     label.size = NA, 
+     alpha = 1,
+     show.legend  = F)
 ```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
