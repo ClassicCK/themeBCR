@@ -48,14 +48,14 @@ theme_foundation <- function(base_size=12, base_family= ""){
 #' @export
 #' @importFrom grid unit
 themeBCR <- function() {
-  theme_foundation(base_size = 15, base_family = "") +
+  theme_foundation(base_size = 12, base_family = "") +
     theme(
     plot.background = element_rect(fill = "white"),
     panel.background = element_rect(fill = "white"),
     line = element_line(colour = "black"),
     rect = element_rect(fill = "white",
                         linetype = 0, colour = NA),
-    axis.title = element_blank(),
+    axis.title = element_text(),
     axis.ticks = element_blank(),
     axis.line = element_blank(),
     legend.background = element_rect(),
@@ -82,32 +82,6 @@ themeBCR <- function() {
     plot.tag.position = "bottom")
 }
 
-#' BCR color palette
-#'
-#' The standard color palette for line plots
-#'
-#' @family colour BCR
-#' @export
-bcr_pal <- function() {
-  colors <- list(
-    green = "#9CB464",
-    blue = "#7CA4B4",
-    red = "#B46474",
-    purple = "#7C64B4",
-    siam = "#5C6454",
-    orange = "#B48C7C",
-    lilac = "#A464B4",
-    gold = "#B4A87C",
-    brown = "#80786C",
-    gray = "#999999",
-    black = "#222222")
-  values <- unname(colors[c('green', 'blue', 'red', 'purple', 'siam', 'orange', 'lilac', 'gold', 'brown', 'gray', 'black')])
-  max_n <- length(values)
-  f <- scales::manual_pal(values)
-  attr(f, "max_n") <- max_n
-  f
-}
-
 #' BCR color scales
 #'
 #' Color scales using the colors in the BCR color palette.
@@ -116,8 +90,58 @@ bcr_pal <- function() {
 #' @family colour BCR
 #' @rdname scale_BCR
 #' @export
-scale_colour_BCR <- function(...) {
-  discrete_scale("colour", "economist", bcr_pal(), ...)
+scale_colour_BCR <- function(palette = "default", n_colors = 1) {
+  custom_colors <- list(
+    #Default
+    '#844EE4',
+    '#E4844E',
+    '#4EE484',
+    '#E44EAE',
+    '#4e63e4',
+    '#e44e63',
+    '#e4cf4e',
+    '#999999',
+    #BCR
+    '#6d904f',
+    '#a99f44',
+    '#81a076',
+    '#4e9994',
+    '#e5ae38',
+    '#8aa889',
+    '#30a2da',
+    '#9576A0',
+    #Wingspan
+    '#9CB464',
+    '#7CA4B4',
+    '#B46474',
+    '#7C64B4',
+    '#5C6454',
+    '#B48C7C',
+    '#A464B4',
+    '#B4A87C',
+    '#80786C'
+    #Oriole
+
+  )
+
+  custom_palettes <- list(
+    default = c('#844EE4', '#E4844E', '#4EE484', '#E44EAE', '#4e63e4', '#e44e63', '#e4cf4e', '#999999'),
+    BCR = c('#9CB464', '#7CA4B4', '#B46474', '#7C64B4', '#5C6454', '#B48C7C', '#A464B4', '#B4A87C', '#80786C'),
+    Wingspan = c('#6d904f', '#a99f44', '#81a076', '#4e9994', '#e5ae38', '#8aa889', '#30a2da', '#9576A0'),
+    Oriole = c('#f96a22', '#d8d8d8', '#f96a22', '#000000')
+  )
+
+  if (palette %in% names(custom_palettes)) {
+    colors <- custom_palettes[[palette]]
+  } else {
+    stop("Invalid palette name. Choose from: ", paste(names(custom_palettes), collapse = ", "))
+  }
+
+  if (n_colors > 1) {
+    scale_color_manual(values = rep(colors, n_colors))
+  } else {
+    scale_color_manual(values = colors)
+  }
 }
 
 #' @rdname scale_BCR
@@ -126,52 +150,5 @@ scale_color_BCR <- scale_colour_BCR
 
 #' @rdname scale_BCR
 #' @export
-scale_fill_BCR <- function(...) {
-  discrete_scale("fill", "economist", bcr_pal(), ...)
-}
-
-#' Wingspan color palette
-#'
-#' The standard color palette for line plots based on the game Wingspan
-#'
-#' @family colour Wingspan
-#' @export
-wingspan_pal <- function() {
-  colors <- list(
-    forest = '#6d904f',
-    grassland = '#e5ae38',
-    wetland = '#30a2da',
-    forestgrassland = '#a99f44',
-    forestwetland = '#4e9994',
-    grasslandwetland = '#8aa889',
-    all = '#81a076',
-    other = '#9576A0')
-  values <- unname(colors[c("forest", "grassland", "wetland", "forestgrassland", "forestwetland", "grasswetland", "all", "other")])
-  max_n <- length(values)
-  f <- scales::manual_pal(values)
-  attr(f, "max_n") <- max_n
-  f
-}
-
-#' Wingspan color scales
-#'
-#' Color scales using the colors in the Wingspan color palette.
-#'
-#' @inheritParams ggplot2::scale_colour_hue
-#' @family colour Wingspan
-#' @rdname scale_Wingspan
-#' @export
-scale_colour_wingspan <- function(...) {
-  discrete_scale("colour", "economist", wingspan_pal(), ...)
-}
-
-#' @rdname scale_Wingspan
-#' @export
-scale_color_wingspan <- scale_colour_wingspan
-
-#' @rdname scale_Wingspan
-#' @export
-scale_fill_wingspan <- function(...) {
-  discrete_scale("fill", "economist", wingspan_pal(), ...)
-}
+scale_fill_BCR <- scale_colour_BCR
 
