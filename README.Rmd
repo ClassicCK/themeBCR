@@ -70,12 +70,13 @@ data$`Wingspan (cm)` <- data$Wingspan
 ```{r pressure, echo = F}
 p <- ggplot(data, aes(x = Victory.points, y = popularity, alpha = 0.2)) +
    geom_point(aes(color = Habitat, size = `Wingspan (cm)`)) +
-   geom_smooth(method = "glm", se = TRUE, colour = '#3C3C3C') +
+   geom_smooth(method = "glm", se = TRUE, colour = '#6d6f71') +
    themeBCR() +
    scale_fill_BCR(palette = "Wingspan") +
-   labs(caption = "SOURCES: Wingspan, Schuetz & Johnston 2019 \n© 2023 Christopher L. Kilner, PhD",
+   labs(caption = "SOURCES: Wingspan, Schuetz & Johnston 2019",
         title = "Do Birds of a Feather Flock Together?",
-        subtitle = "Bird popularity score versus Wingspan point values by species") +
+        subtitle = "Bird popularity score versus Wingspan point values by species", 
+        tag = c("", "© 2023 Christopher L. Kilner, PhD")) +
    scale_alpha(guide = FALSE) +
    ylab("Popularity") +
    xlab("Wingspan Victory Points") +

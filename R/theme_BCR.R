@@ -67,20 +67,20 @@ themeBCR <- function() {
     panel.grid.minor = element_blank(),
     plot.margin = unit(c(1, 1, 1, 1), "lines"),
     strip.background = element_rect(),
-    text = element_text(family = "Exo", colour = "#3C3C3C"),
+    text = element_text(family = "Exo", colour = "black"),
     plot.caption = element_text(size = rel(0.7), hjust = 0),
     plot.caption.position = "plot",
-    plot.tag = element_text(size = rel(0.8), hjust = c(0, 1), color = "#6d6f71",
-                            margin = margin(-10,0,0,0)),
-    axis.text = element_text(size = rel(0.8)),
+    plot.tag = element_text(size = rel(0.7), hjust = c(0,1), color = "#6d6f71", margin = margin(-10,0,0,0)),
+    axis.text = element_text(size = rel(1)),
     legend.text = element_text(size = rel(0.8)),
-    legend.title = element_text(size = rel(1.1), face = "bold"),
-    plot.title = element_text(size = rel(1.5), face = "bold"),
+    legend.title = element_text(size = rel(1), face = "bold"),
+    plot.title = element_text(size = rel(1.3), face = "bold"),
     plot.title.position = "plot",
-    plot.subtitle = element_text(size = rel(1.2)),
+    plot.subtitle = element_text(size = rel(1.1)),
     strip.text = element_text(size = rel(0.8), face = "bold"),
     plot.tag.position = "bottom")
 }
+
 
 #' BCR color scales
 #'
