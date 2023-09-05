@@ -29,7 +29,7 @@ You can install the development version of themeBCR from [GitHub](https://github
 devtools::install_github("ClassicCK/themeBCR")
 ```
 
-## Example
+## Examples
 
 This is a basic example which shows you how to solve a common problem:
 
@@ -91,7 +91,7 @@ p <- ggplot(data, aes(x = Victory.points, y = popularity, alpha = 0.2)) +
      alpha = 1,
      show.legend  = F)
 
-ggsave("wingspan_example.png", plot = p, width = 8, height = 4.5, dpi = 300, device = "png")
+ggsave("wingspan_example.png", plot = p, width = 1200, height = 900, units = c("px"), dpi = 300, device = "png")
 ```
 
 ![](wingspan_example.png)

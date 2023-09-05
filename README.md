@@ -6,7 +6,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-This package creates a ggplot theme baased upon the colors of the Bird Conservancy of the Rockies and the birder game Winspan. Individual species color palettes will also be continuosly added and updated.
+The goal of themeBCR is to … the
 
 ## Installation
 
@@ -18,7 +18,7 @@ You can install the development version of themeBCR from
 devtools::install_github("ClassicCK/themeBCR")
 ```
 
-## Example
+## Examples
 
 This is a basic example which shows you how to solve a common problem:
 
